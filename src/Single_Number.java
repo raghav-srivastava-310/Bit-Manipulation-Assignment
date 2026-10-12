@@ -6,8 +6,4 @@ public class Single_Number {
             }
             return ans;
         }
-
-    public static void main(String[] args) {
-        System.out.println(singleNumber(new int[]{1,2,1,2,3,3,4}));
-    }
 }
