@@ -1,0 +1,13 @@
+public class MissingNumber {
+        public int missingNumber(int[] nums) {
+            int ans = 0;
+            for(int i=0;i<=nums.length;i++){
+                ans = ans ^ i;
+            }
+            for(int num : nums){
+                ans = ans ^ num;
+            }
+            return ans;
+        }
+
+}
