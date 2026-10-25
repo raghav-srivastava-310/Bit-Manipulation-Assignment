@@ -1,31 +1,23 @@
 class PrimeNumberOfSetBits {
-    public int countPrimeSetBits(int left, int right) {
-        int ans = 0;
-        for(int i = left;i<=right;i++){
-            int count = countSetBits(i);
-            if(checkPrime(count)){
-                ans++;
+        public int countPrimeSetBits(int left, int right) {
+            int primeSetBitCounts = 0;
+            for(int i = left;i<=right;i++){
+                int setBits = countSetBits(i);
+                if(setBits == 2 || setBits == 3 || setBits == 5 || setBits == 7 || setBits == 11 ||
+                        setBits == 13 || setBits == 17 || setBits == 19 || setBits == 23 || setBits == 29 || setBits == 31){
+                    primeSetBitCounts++;
+                }
             }
+            return primeSetBitCounts;
         }
-        return ans;
-    }
-    boolean checkPrime(int n){
-        if(n<2){
-            return false;
-        }
-        for(int i=2;i*i<=n;i++){
-            if(n % i == 0){
-                return false;
+
+        int countSetBits(int n){
+            int count = 0;
+            while(n != 0){
+                n = n & (n-1);
+                count++;
             }
+            return count;
         }
-        return true;
-    }
-    int countSetBits(int n){ // Find Count Bits through Brian Keringhan's Algorithm T.C is O(no.of set bits)
-        int count = 0;
-        while(n != 0){
-            n = n & (n-1);
-            count++;
-        }
-        return count;
-    }
+
 }
